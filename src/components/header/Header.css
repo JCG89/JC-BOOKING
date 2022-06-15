@@ -67,3 +67,11 @@
   color: lightgray;
   cursor: pointer;
 }
+.headerTitle {
+  position: relative;
+  top: 5px;
+}
+.date {
+  position: absolute;
+  top: 50px;
+}

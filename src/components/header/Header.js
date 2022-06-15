@@ -1,5 +1,6 @@
 import React from "react";
 import "./Header.css";
+import { useState } from "react";
 import {
   faBed,
   faPlane,
@@ -9,8 +10,26 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCalendarDays } from "@fortawesome/free-regular-svg-icons";
+import { DateRange } from "react-date-range";
+import "react-date-range/dist/styles.css";
+import "react-date-range/dist/theme/default.css";
+import { format } from "date-fns";
 
 const Header = () => {
+  const [openDate, setOpenDate] = useState(false); //state for toggling calendar
+  const [date, setDate] = useState([
+    {
+      startDate: new Date(),
+      endDate: new Date(),
+      key: "selection",
+    },
+  ]);
+  const [openOptions, setOpenOptions] = useState(false);
+  const [options, setOptions] = useState({
+    adult: 1,
+    children: 0,
+    room: 1,
+  }); //state for options
   return (
     <>
       <div className="header">
@@ -54,12 +73,29 @@ const Header = () => {
             </div>
             <div className="headerSearchItem">
               <FontAwesomeIcon icon={faCalendarDays} className="headerIcons" />
-              <span className="headerSearchText">date to date</span>
+              <span
+                onClick={() => setOpenDate(!openDate)}
+                className="headerSearchText"
+              >
+                {/*calendar configuration for start and endDate*/}
+                Du{" "}
+                {`${format(date[0].startDate, "dd/MM/yyyy")}   Au
+                  ${format(date[0].endDate, "dd/MM/yyyy")} `}
+              </span>
+              {openDate && (
+                <DateRange
+                  editableDateInputs={true}
+                  onChange={(item) => setDate([item.selection])}
+                  moveRangeOnFirstSelection={false}
+                  ranges={date}
+                  className="date"
+                />
+              )}
             </div>
             <div className="headerSearchItem">
               <FontAwesomeIcon icon={faPerson} className="headerIcons" />
               <span className="headerSearchText">
-                2 adultes 2 childrens room
+                {`${options.adult} adult . ${options.children} children . ${options.room} room.`}
               </span>
             </div>
             <div className="headerSearchItem">
