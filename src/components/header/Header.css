@@ -56,19 +56,21 @@
   max-width: 1024px;
 }
 .headerIcons {
-  color: lightgray;
+  color: orangered;
 }
 .headerSearchItem {
   display: flex;
   align-items: center;
   gap: 10px;
+  position: relative;
+  top: 10px;
 }
 .headerSearchInput {
   border: none;
   outline: none;
 }
 .headerSearchText {
-  color: lightgray;
+  color: #27ae60;
   cursor: pointer;
 }
 .headerTitle {
@@ -80,8 +82,8 @@
   top: 50px;
 }
 .options {
-  position: absolute;
-  top: 50px;
+  position: relative;
+  top: 25px;
   background-color: white;
   color: gray;
   border-radius: 5px;

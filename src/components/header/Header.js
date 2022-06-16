@@ -97,7 +97,7 @@ const Header = ({ type }) => {
                   >
                     {/*calendar configuration for start and endDate*/}
                     Du{" "}
-                    {`${format(date[0].startDate, "dd/MM/yyyy")}   Au
+                    {`${format(date[0].startDate, "dd/MM/yyyy")}.   Au
                   ${format(date[0].endDate, "dd/MM/yyyy")} `}
                   </span>
                   {openDate && (
@@ -116,7 +116,7 @@ const Header = ({ type }) => {
                     onClick={() => setOpenOptions(!openOptions)}
                     className="headerSearchText"
                   >
-                    {`${options.adult} adult . ${options.children} children . ${options.room} room.`}
+                    {`${options.adult} adult(s) . ${options.children} children(s) . ${options.room} room(s).`}
                   </span>
                   {openOptions && (
                     <div className="options">
