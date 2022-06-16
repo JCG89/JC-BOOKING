@@ -1,12 +1,13 @@
 import React from "react";
 import "./List.css";
+import NavBar from "../../components/NavBar";
+import Header from "../../components/header/Header";
 
 const List = () => {
   return (
     <>
-      <div className="list">
-        <h2>Liste des hotels</h2>
-      </div>
+      <NavBar />
+      <Header type="list" />
     </>
   );
 };
