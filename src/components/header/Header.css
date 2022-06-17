@@ -61,9 +61,9 @@
 .headerSearchItem {
   display: flex;
   align-items: center;
-  gap: 10px;
-  position: relative;
-  top: 10px;
+  z-index: 1;
+
+  /* Calendary sttings */
 }
 .headerSearchInput {
   border: none;

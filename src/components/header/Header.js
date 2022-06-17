@@ -14,9 +14,11 @@ import { DateRange } from "react-date-range";
 import "react-date-range/dist/styles.css";
 import "react-date-range/dist/theme/default.css";
 import { format } from "date-fns";
+import { useNavigate } from "react-router-dom";
 
 const Header = ({ type }) => {
   const [openDate, setOpenDate] = useState(false); //state for toggling calendar(close and open)
+  const [destination, setDestination] = useState("");
   const [date, setDate] = useState([
     {
       startDate: new Date(),
@@ -24,6 +26,7 @@ const Header = ({ type }) => {
       key: "selection",
     },
   ]);
+  const navigate = useNavigate();
   const [openOptions, setOpenOptions] = useState(false); //state for toggling options(close and open)
   const [options, setOptions] = useState({
     adult: 1,
@@ -38,6 +41,9 @@ const Header = ({ type }) => {
         [name]: operation === "i" ? options[name] + 1 : options[name] - 1,
       };
     });
+  };
+  const handleSearch = () => {
+    navigate("/hotels", { state: { date, destination, options } });
   };
   return (
     <>
@@ -84,6 +90,7 @@ const Header = ({ type }) => {
                     type="text"
                     placeholder="where aregoing ?"
                     className="headerSearchInput"
+                    onChange={(e) => setDestination(e.target.value)}
                   />
                 </div>
                 <div className="headerSearchItem">
@@ -107,6 +114,7 @@ const Header = ({ type }) => {
                       moveRangeOnFirstSelection={false}
                       ranges={date}
                       className="date"
+                      minDate={new Date()}
                     />
                   )}
                 </div>
@@ -188,7 +196,13 @@ const Header = ({ type }) => {
                 </div>
 
                 <div className="headerSearchItem">
-                  <button className="headerButton"> Search</button>
+                  <button
+                    onClick={() => handleSearch()}
+                    className="headerButton"
+                  >
+                    {" "}
+                    Search
+                  </button>
                 </div>
               </div>
             </>
