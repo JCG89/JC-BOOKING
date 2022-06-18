@@ -1,6 +1,6 @@
 import React from "react";
 import "./List.css";
-import NavBar from "../../components/NavBar";
+import NavBar from "../../components/navbar/NavBar";
 import Header from "../../components/header/Header";
 import { useLocation } from "react-router-dom";
 import { useState } from "react";
