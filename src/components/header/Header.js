@@ -77,7 +77,9 @@ const Header = ({ type }) => {
           </div>
           {type !== "list" && (
             <>
-              <h1 className="headerTitle">A liftime of Discount? Its Genius</h1>
+              <h1 className="headerTitle">
+                A lifetime of Discount? Its awesome
+              </h1>
               <p className="headerDesc">
                 Get rewarded for your travel unlock instant saving 10% or more
                 with Gomis-booking account
@@ -198,7 +200,7 @@ const Header = ({ type }) => {
                 <div className="headerSearchItem">
                   <button
                     onClick={() => handleSearch()}
-                    className="headerButton"
+                    className="headerButtons"
                   >
                     {" "}
                     Search
